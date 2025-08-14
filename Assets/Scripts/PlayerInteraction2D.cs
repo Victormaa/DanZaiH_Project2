@@ -16,7 +16,7 @@ public class PlayerInteraction2D : MonoBehaviour
     {
         if(overlappingInteractable != null)
         {
-            if (Input.GetKeyDown(KeyCode.E))
+            if (Input.GetMouseButtonDown(0))
             {
                 overlappingInteractable.Interact();
             }
@@ -32,21 +32,6 @@ public class PlayerInteraction2D : MonoBehaviour
             overlappingInteractable = interactable;
         }
     }
-
-    //private void OnTriggerStay2D(Collider2D collision)
-    //{
-    //    Debug.Log("持续触发: " + collision.name + " | 时间: " + Time.time);
-    //    IInteractable2D interactable = collision.gameObject.GetComponent<IInteractable2D>();
-    //    if (interactable != null)
-    //    {
-    //        interactable.tipsIcon.SetActive(true);
-
-    //        if (Input.GetKeyDown(KeyCode.E))
-    //        {
-    //            interactable.Interact();
-    //        }
-    //    }
-    //}
 
     private void OnTriggerExit2D(Collider2D collision)
     {
