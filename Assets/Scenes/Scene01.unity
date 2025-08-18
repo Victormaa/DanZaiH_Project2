@@ -2265,23 +2265,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4254449407656070977, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.025518522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254449407656070977, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.025518522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254449407656070977, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.025518522
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254449407656070977, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1.56
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4254449407656070977, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 3.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4868257582489690393, guid: 9d9633bf104ffa7469b64149bc2b603c, type: 3}
       propertyPath: characterAnimateSpeed

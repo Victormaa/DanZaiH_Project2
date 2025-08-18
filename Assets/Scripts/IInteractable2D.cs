@@ -6,7 +6,7 @@ using UnityEngine;
 public class IInteractable2D : MonoBehaviour
 {
     public GameObject tipsIcon;
-
+    public string description;
     public virtual string GetDescription()
     {
         return "";
