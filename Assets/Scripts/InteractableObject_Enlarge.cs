@@ -17,8 +17,13 @@ public class InteractableObject_Enlarge : IInteractable2D
 
     private void Awake()
     {
+        thePanel = GameObject.Find("Canvas").transform.Find("ObjectPanel").gameObject;
         panelAnimator = thePanel.GetComponent<Animator>();
         curSprite = GetComponent<SpriteRenderer>().sprite;
+
+        // the image the description
+        theImage = thePanel.transform.Find("ObjectContainer").GetComponent<Image>();
+        thrDescription = thePanel.transform.Find("Text (TMP)").GetComponent<TMP_Text>();
     }
 
     public override void Interact()
