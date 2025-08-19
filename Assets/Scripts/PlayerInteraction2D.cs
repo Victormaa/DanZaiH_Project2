@@ -22,13 +22,27 @@ public class PlayerInteraction2D : MonoBehaviour
             }
         }
     }
+    private void UpdateInteractableObjectIcon(IInteractable2D newObj)
+    {
+        if(overlappingInteractable == null)
+        {
+            newObj.tipsIcon.SetActive(true);
+            return;
+        }
 
+        if(overlappingInteractable != null && newObj != overlappingInteractable)
+        {
+            overlappingInteractable.tipsIcon.SetActive(false);
+            newObj.tipsIcon.SetActive(true);
+        }
+    }
     private void OnTriggerEnter2D(Collider2D collision)
     {
         IInteractable2D interactable = collision.gameObject.GetComponent<IInteractable2D>();
         if (interactable != null)
         {
-            interactable.tipsIcon.SetActive(true);
+            //interactable.tipsIcon.SetActive(true);
+            UpdateInteractableObjectIcon(interactable);
             overlappingInteractable = interactable;
         }
     }
@@ -39,6 +53,7 @@ public class PlayerInteraction2D : MonoBehaviour
         if (interactable != null && interactable == overlappingInteractable)
         {
             interactable.tipsIcon.SetActive(false);
+            //UpdateInteractableObjectIcon(interactable);
             overlappingInteractable = null;
         }
     }
