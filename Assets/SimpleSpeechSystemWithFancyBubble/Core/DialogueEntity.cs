@@ -59,12 +59,18 @@ public class DialogueEntity : MonoBehaviour
         string text = dialogueData[currentIndex].Item2;
         if (curSpeaker == Diagloguer.Bubble_1)
         {
+            if (bubble_2.gameObject.activeSelf)
+                yield return StartCoroutine(HideBubble(bubble_2.gameObject));
+
             if (!bubble_1.gameObject.activeSelf)
                 yield return StartCoroutine(ShowBubble(bubble_1.gameObject));
             bubble_1.Set(text);
         }
         else if (curSpeaker == Diagloguer.Bubble_2)
         {
+            if (bubble_1.gameObject.activeSelf)
+                yield return StartCoroutine(HideBubble(bubble_1.gameObject));
+
             if (!bubble_2.gameObject.activeSelf)
                 yield return StartCoroutine(ShowBubble(bubble_2.gameObject));
             bubble_2.Set(text);
