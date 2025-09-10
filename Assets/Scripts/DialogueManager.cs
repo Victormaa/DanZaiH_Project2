@@ -32,18 +32,28 @@ public class DialogueManager : MonoBehaviour
 
     public UnityEvent OnDialogueFinished;
 
+    // 添加对话状态标志
+    private bool isDialoguePlaying = false;
 
     void Start()
     {
 
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Return) && !isDialoguePlaying)
+        {
+            StartCoroutine(PlayDialogue());
+        }
+    }
+
     public IEnumerator PlayDialogue()
     {
-
+        isDialoguePlaying = true;
         dialoguePanel.SetActive(true);
         //if (GameManager.Instance.CurrentState == GameState.EntryAnimation)
-        blackScreen.SetActive(true);
+        //blackScreen.SetActive(true);
 
         foreach (var line in dialogueLines)
         {
@@ -52,11 +62,13 @@ public class DialogueManager : MonoBehaviour
             yield return StartCoroutine(TypeSentence(content));
 
             // 停顿或等待输入
-            yield return new WaitForSeconds(1f);
+            yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter));
         }
 
         dialoguePanel.SetActive(false);
         blackScreen.SetActive(false);
+
+        isDialoguePlaying = false;
 
         // 播放结束事件
         OnDialogueFinished?.Invoke();
