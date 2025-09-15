@@ -19,15 +19,23 @@ MonoBehaviour:
     m_Items: []
   m_TableData:
   - m_Id: 131255492608
-    m_Localized: Humglum
+    m_Localized: Margaret Thorne
     m_Metadata:
       m_Items: []
   - m_Id: 1239155728384
-    m_Localized: Do you know how to get to the White Horse Manor?
+    m_Localized: Where are you going?
     m_Metadata:
       m_Items: []
   - m_Id: 1687375831040
     m_Localized: NPC1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1973509390921728
+    m_Localized: Oliver Windsor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 1974118873624576
+    m_Localized: Do you know how to get to the White Horse Manor?
     m_Metadata:
       m_Items: []
   references:
