@@ -16,11 +16,11 @@ MonoBehaviour:
   m_TableCollectionNameGuidString: 557c809a778924845a1a622eff0a5bd3
   m_Entries:
   - m_Id: 131255492608
-    m_Key: "\u540D\u79F01"
+    m_Key: "\u6751\u59871"
     m_Metadata:
       m_Items: []
   - m_Id: 1239155728384
-    m_Key: "\u6751\u5987"
+    m_Key: "\u6751\u5987\u5BF9\u8BDD1"
     m_Metadata:
       m_Items: []
   - m_Id: 1687375831040
@@ -28,11 +28,35 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1973509390921728
-    m_Key: DANZAI
+    m_Key: "\u4E3B\u89D21"
     m_Metadata:
       m_Items: []
   - m_Id: 1974118873624576
-    m_Key: DANZAIDIalogue
+    m_Key: "\u4E3B\u89D2\u5BF9\u8BDD1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2160592655020032
+    m_Key: "\u6751\u5987\u5BF9\u8BDD2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161043110686720
+    m_Key: "\u4E3B\u89D2\u5BF9\u8BDD2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161376859844608
+    m_Key: "\u6751\u5987\u5BF9\u8BDD3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161802732695552
+    m_Key: "\u4E3B\u89D2\u5BF9\u8BDD3"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161905312788480
+    m_Key: "\u6751\u5987\u5BF9\u8BDD4"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2163670007476224
+    m_Key: "\u6751\u5987\u5BF9\u8BDD"
     m_Metadata:
       m_Items: []
   m_Metadata:

@@ -38,6 +38,31 @@ MonoBehaviour:
     m_Localized: Do you know how to get to the White Horse Manor?
     m_Metadata:
       m_Items: []
+  - m_Id: 2160592655020032
+    m_Localized: So you are a guest of the Duke of Windsor... It's been a long time
+      since we had any guests here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161043110686720
+    m_Localized: What does it mean?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161376859844608
+    m_Localized: Too much alike....
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161802732695552
+    m_Localized: What do you mean?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2161905312788480
+    m_Localized: Just keep walking along the village road.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2163670007476224
+    m_Localized: Just keep walking along the village road.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
