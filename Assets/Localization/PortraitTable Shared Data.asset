@@ -23,9 +23,14 @@ MonoBehaviour:
     m_Key: "\u4E3B\u89D2"
     m_Metadata:
       m_Items: []
+  - m_Id: 29604768444416
+    m_Key: "\u914D\u97F3"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 915254737774051334
+    - rid: 915254741888401410
   m_KeyGenerator:
     rid: 915254737774051333
   references:
@@ -48,4 +53,14 @@ MonoBehaviour:
           - en
           - zh-CN
         m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+          Culture=neutral, PublicKeyToken=null
+    - rid: 915254741888401410
+      type: {class: AssetTypeMetadata, ns: UnityEngine.Localization.Metadata, asm: Unity.Localization}
+      data:
+        m_Entries:
+        - m_KeyId: 29604768444416
+          m_TableCodes:
+          - en
+          - zh-CN
+        m_TypeString: UnityEngine.AudioClip, UnityEngine.AudioModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null

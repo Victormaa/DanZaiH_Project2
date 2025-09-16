@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 97269afb30aa84742ae3f3342603618a, type: 3}
-  m_Name: PortraitTable_en
+  m_Name: PortraitTable_zh-CN
   m_EditorClassIdentifier: 
   m_LocaleId:
-    m_Code: en
+    m_Code: zh-CN
   m_SharedData: {fileID: 11400000, guid: f02555ccabb3fbc4f87aa2db273ded36, type: 2}
   m_Metadata:
     m_Items: []
@@ -24,6 +24,10 @@ MonoBehaviour:
       m_Items: []
   - m_Id: 170929745920
     m_Localized: 1c61908a28ec2c840b0754df6a7bb9b6[boy]
+    m_Metadata:
+      m_Items: []
+  - m_Id: 29604768444416
+    m_Localized: 577be453f0dd71e469556d20e96f2393
     m_Metadata:
       m_Items: []
   references:

@@ -1,43 +1,49 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
+using TMPro;   // TextMeshPro å»ºè®®ç”¨æ¥æ˜¾ç¤ºæ–‡å­—
 using UnityEngine;
-using UnityEngine.UI;
-using TMPro;   // TextMeshPro ½¨ÒéÓÃÀ´ÏÔÊ¾ÎÄ×Ö
+using UnityEngine.Events;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
-using UnityEngine.Events;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.UI;
 
 
 [System.Serializable]
 public class DialogueLine
 {
-    public LocalizedString speaker;  // Ëµ»°ÈË
-    public LocalizedString content;  // ¶Ô»°ÄÚÈİ
-    public LocalizedSprite portrait;           // ÈËÎïÁ¢»æ
+    public LocalizedString speaker;  // è¯´è¯äºº
+    public LocalizedString content;  // å¯¹è¯å†…å®¹
+    public LocalizedSprite portrait;           // äººç‰©ç«‹ç»˜
+    public LocalizedAudioClip voice;    // é…éŸ³
 }
 
 
 public class DialogueManager : MonoBehaviour
 {
-    [Header("UI ×é¼ş")]
-    public GameObject blackScreen;       // ºÚÆÁ±³¾°
-    public GameObject dialoguePanel;     // ¶Ô»°¿ò±³¾°
-    public TMP_Text speakerNameText;     // Ëµ»°ÈËÃû×Ö
-    public TMP_Text dialogueText;        // ¶Ô»°ÄÚÈİ
+    [Header("UI ç»„ä»¶")]
+    public GameObject blackScreen;       // é»‘å±èƒŒæ™¯
+    public GameObject dialoguePanel;     // å¯¹è¯æ¡†èƒŒæ™¯
+    public TMP_Text speakerNameText;     // è¯´è¯äººåå­—
+    public TMP_Text dialogueText;        // å¯¹è¯å†…å®¹
 
-    [Header("´ò×Ö»úÉèÖÃ")]
-    public float typingSpeed = 0.05f;    // ´ò×Ö»úËÙ¶È
+    [Header("æ‰“å­—æœºè®¾ç½®")]
+    public float typingSpeed = 0.05f;    // æ‰“å­—æœºé€Ÿåº¦
 
-    [Header("¶Ô»°ÄÚÈİ")]
-    public List<DialogueLine> dialogueLines;  // ¶Ô»°Ì¨´ÊÁĞ±í
+    [Header("å¯¹è¯å†…å®¹")]
+    public List<DialogueLine> dialogueLines;  // å¯¹è¯å°è¯åˆ—è¡¨
 
     public UnityEvent OnDialogueFinished;
 
-    [Header("ÈËÎïÁ¢»æ")]
-    public Image portraitImage;  // ÏÔÊ¾Á¢»æ
+    [Header("äººç‰©ç«‹ç»˜")]
+    public Image portraitImage;  // æ˜¾ç¤ºç«‹ç»˜
+
+    [Header("éŸ³é¢‘")]
+    public AudioSource voiceAudioSource;
 
 
-    // Ìí¼Ó¶Ô»°×´Ì¬±êÖ¾
+
+    // æ·»åŠ å¯¹è¯çŠ¶æ€æ ‡å¿—
     private bool isDialoguePlaying = false;
 
     void Start()
@@ -62,29 +68,54 @@ public class DialogueManager : MonoBehaviour
 
         foreach (var line in dialogueLines)
         {
-            // ÏÔÊ¾Ãû×Ö
+            // æ˜¾ç¤ºåå­—
             speakerNameText.text = line.speaker.GetLocalizedString();
 
-            // »ñÈ¡Á¢»æ£¨Òì²½£©
-            var handle = line.portrait.LoadAssetAsync();
-            yield return handle; // µÈ´ı¼ÓÔØÍê³É
-            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            // æ˜¾ç¤ºç«‹ç»˜
+            var spriteHandle = line.portrait.LoadAssetAsync();
+            yield return spriteHandle;
+            if (spriteHandle.Status == AsyncOperationStatus.Succeeded)
             {
-                portraitImage.sprite = handle.Result;
+                portraitImage.sprite = spriteHandle.Result;
                 portraitImage.gameObject.SetActive(true);
             }
-            else
+
+            // æ’­æ”¾é…éŸ³ï¼ˆå¾ªç¯ï¼‰
+            if (line.voice != null)
             {
-                portraitImage.gameObject.SetActive(false);
+                var voiceHandle = line.voice.LoadAssetAsync();
+                yield return voiceHandle;
+                if (voiceHandle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+                {
+                    voiceAudioSource.clip = voiceHandle.Result;
+                    voiceAudioSource.loop = true;  // âœ… å¾ªç¯ï¼Œç›´åˆ°æ–‡å­—ç»“æŸ
+                    voiceAudioSource.Play();
+                }
             }
 
-            // ´ò×Ö»úÏÔÊ¾ÄÚÈİ
+            // æ‰“å­—æœºæ•ˆæœ
             string content = line.content.GetLocalizedString();
             yield return StartCoroutine(TypeSentence(content));
 
-            // µÈ´ıÊäÈë
+            // ğŸ”¥ æ‰“å­—æœºç»“æŸ â†’ è®©é…éŸ³å®Œæˆå½“å‰å¾ªç¯ååœ
+            if (voiceAudioSource.isPlaying)
+            {
+                voiceAudioSource.loop = false;  // âœ… å…³æ‰å¾ªç¯ï¼Œè®©å®ƒè‡ªç„¶æ’­å®Œ
+                                                // ä¸è¦ Stop()ï¼Œå¦åˆ™ä¼šæˆ›ç„¶è€Œæ­¢
+            }
+
+            // ç­‰å¾…ç©å®¶æŒ‰ä¸‹ Enter è¿›å…¥ä¸‹ä¸€å¥
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter));
+
+            // åŒä¿é™©ï¼šå¦‚æœè¯­éŸ³è¿˜åœ¨æ’­ï¼Œæ‰‹åŠ¨åœæ‰ï¼Œé¿å…ä¸²åˆ°ä¸‹ä¸€å¥
+            if (voiceAudioSource.isPlaying)
+            {
+                voiceAudioSource.Stop();
+            }
         }
+
+
+
 
 
 
@@ -93,7 +124,7 @@ public class DialogueManager : MonoBehaviour
 
         isDialoguePlaying = false;
 
-        // ²¥·Å½áÊøÊÂ¼ş
+        // æ’­æ”¾ç»“æŸäº‹ä»¶
         OnDialogueFinished?.Invoke();
     }
 
@@ -117,8 +148,8 @@ public class DialogueManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         blackScreen.SetActive(false);
 
-        Debug.Log("¶Ô»°½áÊø£¬½øÈë½ÌÑ§½×¶Î");
-        //TutorialManager.Instance.StartTutorial(); // ½ÌÑ§¿ªÊ¼
+        Debug.Log("å¯¹è¯ç»“æŸï¼Œè¿›å…¥æ•™å­¦é˜¶æ®µ");
+        //TutorialManager.Instance.StartTutorial(); // æ•™å­¦å¼€å§‹
     }
 
     public void ShowTemporaryMessage(LocalizedString name, LocalizedString content, float duration)
@@ -129,9 +160,9 @@ public class DialogueManager : MonoBehaviour
     private IEnumerator ShowTemporaryRoutine(LocalizedString name,LocalizedString content, float duration)
     {
         dialoguePanel.SetActive(true);
-        blackScreen.SetActive(false); // ÌáÊ¾Ò»°ã²»ÒªºÚÆÁ
+        blackScreen.SetActive(false); // æç¤ºä¸€èˆ¬ä¸è¦é»‘å±
 
-        //speakerNameText.text = ""; // ÌáÊ¾Ò»°ã²»ÏÔÊ¾Ëµ»°ÈË
+        //speakerNameText.text = ""; // æç¤ºä¸€èˆ¬ä¸æ˜¾ç¤ºè¯´è¯äºº
         speakerNameText.text = name.GetLocalizedString();
         dialogueText.text = content.GetLocalizedString();
 

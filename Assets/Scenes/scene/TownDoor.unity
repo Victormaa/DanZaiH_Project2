@@ -134,6 +134,134 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4aec0a4a67434c4f8490d1fea47ec5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &11535990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 11535991}
+  - component: {fileID: 11535992}
+  m_Layer: 0
+  m_Name: sound
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &11535991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11535990}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -927.5722, y: -112.35954, z: 0}
+  m_LocalScale: {x: 0.960338, y: 0.960338, z: 0.960338}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 759914330}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &11535992
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 11535990}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 577be453f0dd71e469556d20e96f2393, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1001 &16957955
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -244,6 +372,14 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   - speaker:
       m_TableReference:
         m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
@@ -267,6 +403,14 @@ MonoBehaviour:
         m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
         m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -296,6 +440,14 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   - speaker:
       m_TableReference:
         m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
@@ -319,6 +471,14 @@ MonoBehaviour:
         m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
         m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -348,6 +508,14 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   - speaker:
       m_TableReference:
         m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
@@ -371,6 +539,14 @@ MonoBehaviour:
         m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
         m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -400,10 +576,19 @@ MonoBehaviour:
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   OnDialogueFinished:
     m_PersistentCalls:
       m_Calls: []
   portraitImage: {fileID: 948884800}
+  voiceAudioSource: {fileID: 11535992}
   references:
     version: 2
     RefIds: []
@@ -499,7 +684,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &117427919
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1285,7 +1470,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &488822974
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1556,7 +1741,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &524313064
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1789,7 +1974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &687531988
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1819,7 +2004,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 687531987}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
@@ -1967,6 +2152,7 @@ RectTransform:
   - {fileID: 433902778}
   - {fileID: 1014282600}
   - {fileID: 948884799}
+  - {fileID: 11535991}
   m_Father: {fileID: 779984400}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
