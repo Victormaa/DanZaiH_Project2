@@ -13,6 +13,7 @@ public class DialogueLine
 {
     public LocalizedString speaker;  // 说话人
     public LocalizedString content;  // 对话内容
+    public LocalizedSprite portrait;           // 人物立绘
 }
 
 
@@ -31,6 +32,10 @@ public class DialogueManager : MonoBehaviour
     public List<DialogueLine> dialogueLines;  // 对话台词列表
 
     public UnityEvent OnDialogueFinished;
+
+    [Header("人物立绘")]
+    public Image portraitImage;  // 显示立绘
+
 
     // 添加对话状态标志
     private bool isDialoguePlaying = false;
@@ -57,13 +62,31 @@ public class DialogueManager : MonoBehaviour
 
         foreach (var line in dialogueLines)
         {
+            // 显示名字
             speakerNameText.text = line.speaker.GetLocalizedString();
+
+            // 获取立绘（异步）
+            var handle = line.portrait.LoadAssetAsync();
+            yield return handle; // 等待加载完成
+            if (handle.Status == UnityEngine.ResourceManagement.AsyncOperations.AsyncOperationStatus.Succeeded)
+            {
+                portraitImage.sprite = handle.Result;
+                portraitImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                portraitImage.gameObject.SetActive(false);
+            }
+
+            // 打字机显示内容
             string content = line.content.GetLocalizedString();
             yield return StartCoroutine(TypeSentence(content));
 
-            // 停顿或等待输入
+            // 等待输入
             yield return new WaitUntil(() => Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter));
         }
+
+
 
         dialoguePanel.SetActive(false);
         blackScreen.SetActive(false);
