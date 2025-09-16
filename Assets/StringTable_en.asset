@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1239155728384
-    m_Localized: Where are you going?
+    m_Localized: "That devil has returned to claim lives\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 1687375831040
@@ -60,7 +60,32 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2163670007476224
-    m_Localized: Just keep walking along the village road.
+    m_Localized: "That devil has returned to claim lives\u2026"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2170519586926592
+    m_Localized: (What kind of secret is hidden here...)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2177699253907456
+    m_Localized: The Duke of Windsor
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2178908241063936
+    m_Localized: (Knock knock knock...)
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2178129199427584
+    m_Localized: What are you doing?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2181959576252416
+    m_Localized: My father passed away a few days ago. I brought his ashes back and
+      wanted to have them buried here.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2182240699478016
+    m_Localized: Come in.
     m_Metadata:
       m_Items: []
   references:
