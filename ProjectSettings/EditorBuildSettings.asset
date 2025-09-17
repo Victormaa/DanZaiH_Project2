@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Scenes/scene/TownDoor.unity
     guid: aa0930c4743362144af2ad0a959d5322
   - enabled: 1
-    path: Assets/Scenes/scene/Manor.unity
+    path: Assets/Scenes/scene/ManorDialogue.unity
     guid: b0a2ffd663695a94b9a61f41d2e96f09
   - enabled: 1
     path: Assets/Scenes/scene/Room.unity

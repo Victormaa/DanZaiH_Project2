@@ -27,6 +27,10 @@ MonoBehaviour:
     m_Key: "\u914D\u97F3"
     m_Metadata:
       m_Items: []
+  - m_Id: 361294258827264
+    m_Key: "\u6E29\u838E\u516C\u7235"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 915254737774051334
@@ -49,6 +53,10 @@ MonoBehaviour:
           - en
           - zh-CN
         - m_KeyId: 170929745920
+          m_TableCodes:
+          - en
+          - zh-CN
+        - m_KeyId: 361294258827264
           m_TableCodes:
           - en
           - zh-CN

@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1239155728384
-    m_Localized: "That devil has returned to claim lives\u2026"
+    m_Localized: Where are you going?
     m_Metadata:
       m_Items: []
   - m_Id: 1687375831040
@@ -80,12 +80,67 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 2181959576252416
+    m_Localized: ' Should I call you uncle?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2182240699478016
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2556641144008704
     m_Localized: My father passed away a few days ago. I brought his ashes back and
       wanted to have them buried here.
     m_Metadata:
       m_Items: []
-  - m_Id: 2182240699478016
+  - m_Id: 2556901157302272
     m_Localized: Come in.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2563639067602944
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2563764133359616
+    m_Localized: Should I call you uncle?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2563899487744000
+    m_Localized: ...
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2564025224589312
+    m_Localized: As you wish.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565048651542528
+    m_Localized: 'Just stay in the room on the right side of the first floor. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565209071087616
+    m_Localized: 'The kitchen is on the left. If you want to eat something, go to
+      the kitchen and get it yourself. '
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565332563980288
+    m_Localized: You can't go up to the third floor. The manor has long had no servants.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2564151322144768
+    m_Localized: Alright.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2565909058482176
+    m_Localized: "It\u2019s too late now."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2566038201102336
+    m_Localized: "Tomorrow morning, I\u2019ll arrange for your father\u2019s ashes
+      to be placed. Once that\u2019s done, you should leave as soon as possible."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 2566232749699072
+    m_Localized: "(Uncle seems to hold a deep grudge against Father\u2026 and even
+      looks at me with the same disdain.)"
     m_Metadata:
       m_Items: []
   references:
