@@ -23,7 +23,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1239155728384
-    m_Localized: Where are you going?
+    m_Localized: "That devil has returned to claim lives\u2026"
     m_Metadata:
       m_Items: []
   - m_Id: 1687375831040
@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Metadata:
       m_Items: []
   - m_Id: 1974118873624576
-    m_Localized: Do you know how to get to the White Horse Manor?
+    m_Localized: (What kind of secret is hidden here...)
     m_Metadata:
       m_Items: []
   - m_Id: 2160592655020032
