@@ -70,23 +70,23 @@ public class DialogueManager : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
         {
             if (waitingForFirstEnter)
-            {
-                waitingForFirstEnter = false;
-                StartCoroutine(PlayDialogue());
                 return;
-            }
 
             if (!isDialoguePlaying && !hasFinishedAllLines)
             {
                 StartCoroutine(PlayDialogue());
             }
-            else if (hasFinishedAllLines && !isTransitioning)
-            {
-                StartCoroutine(FadeAndLoadNextScene());
-            }
+            //else if (hasFinishedAllLines && !isTransitioning)
+            //{
+                
+            //}
         }
     }
 
+    public void OnDialogueEnd()
+    {
+        StartCoroutine(FadeAndLoadNextScene());
+    }
     // 一键强制隐藏 UI
     private void ForceHideUI()
     {
@@ -325,6 +325,16 @@ public class DialogueManager : MonoBehaviour
         yield return new WaitForSeconds(duration);
 
         SetDialogueVisible(false);
+    }
+
+    public void StartDialogue()
+    {
+        if (waitingForFirstEnter)
+        {
+            waitingForFirstEnter = false;
+            StartCoroutine(PlayDialogue());
+            return;
+        }
     }
 }
 
