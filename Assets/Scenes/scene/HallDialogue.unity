@@ -491,6 +491,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: 'DialogueManager '
       objectReference: {fileID: 0}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: blackScreen
+      value: 
+      objectReference: {fileID: 1352517211}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: dialogueText
+      value: 
+      objectReference: {fileID: 1600523272}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: blackScreenCG
+      value: 
+      objectReference: {fileID: 1204038571}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: dialoguePanel
+      value: 
+      objectReference: {fileID: 1774850965}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: portraitImage
+      value: 
+      objectReference: {fileID: 1478241876}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: speakerNameText
+      value: 
+      objectReference: {fileID: 1133264406}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: voiceAudioSource
+      value: 
+      objectReference: {fileID: 1525518052}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: dialogueLines.Array.data[0].content.m_TableEntryReference.m_KeyId
+      value: 2563899487744000
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: dialogueLines.Array.data[0].speaker.m_TableEntryReference.m_KeyId
+      value: 2177699253907456
+      objectReference: {fileID: 0}
+    - target: {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+      propertyPath: dialogueLines.Array.data[0].portrait.m_TableEntryReference.m_KeyId
+      value: 361294258827264
+      objectReference: {fileID: 0}
     - target: {fileID: 8038779048129072324, guid: 94039c4fed931204e803929ac7d97567, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -533,6 +573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1643823512707378994, guid: 94039c4fed931204e803929ac7d97567, type: 3}
+    - {fileID: 5722259031312104895, guid: 94039c4fed931204e803929ac7d97567, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
