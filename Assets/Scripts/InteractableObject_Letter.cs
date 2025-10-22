@@ -2,31 +2,43 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Localization; // 仅为了在 Inspector 里能看到 Localized* 字段类型，如果你只把对白配置在 DialogueManager 上，可不需要
+using UnityEngine.Localization;
 
 [RequireComponent(typeof(Collider2D))]
 public class InteractableObject_Letter : MonoBehaviour
 {
     [Header("玩家与高亮")]
     public string playerTag = "Player";
-    public GameObject highlightObject;           // 进入触发区显示高光（Sprite 或 UI Image）
+    public GameObject highlightObject;
     public bool useFadeForHighlight = false;
     public float highlightFadeSpeed = 8f;
 
     [Header("面板（点击物体后弹出）")]
-    public GameObject panelRoot;                 // 面板根节点
-    public Image panelImage;                     // 面板图片（信件插画等）
-    public TMP_Text panelText;                   // 面板文字（显示在面板范围内）
+    public GameObject panelRoot;
+    public Image panelImage;
+    public TMP_Text panelText;
     [TextArea(2, 6)] public string panelContent;
     public Sprite panelSprite;
-    public AudioSource uiAudioSource;            // UI 音源
-    public AudioClip sfxOpenPanel;               // 打开面板音效
-    public AudioClip sfxClosePanel;              // 关闭面板音效
+    public AudioSource uiAudioSource;
+    public AudioClip sfxOpenPanel;
+    public AudioClip sfxClosePanel;
+
+    [Header("面板弹出动画设置")]
+    public bool enablePanelAnimation = true;
+    public float fadeSpeed = 6f;
+    public float scaleSpeed = 8f;
+    public Vector3 minScale = new Vector3(0.8f, 0.8f, 0.8f);
+
+    private CanvasGroup _panelCg;
+    private RectTransform _panelRt;
+    private float _targetAlpha = 0f;
+    private Vector3 _targetScale;
+    private bool _panelVisible = false;
 
     [Header("对话——使用你自己的 DialogueManager")]
-    public DialogueManager dialogueManager;      // 拖你现有的 DialogueManager
-    public bool overrideDialogueLines = false;   // 若勾选：用下面这份覆盖 DialogueManager 的对白
-    public List<DialogueLine> dialogueLinesToUse = new(); // 这里使用“你项目里的 DialogueLine”类型（带 Localized*）
+    public DialogueManager dialogueManager;
+    public bool overrideDialogueLines = false;
+    public List<DialogueLine> dialogueLinesToUse = new();
 
     private bool _playerInRange = false;
     private bool _panelOpen = false;
@@ -52,35 +64,52 @@ public class InteractableObject_Letter : MonoBehaviour
         }
 
         // 面板初始化
-        if (panelRoot) panelRoot.SetActive(false);
+        if (panelRoot != null)
+        {
+            _panelRt = panelRoot.GetComponent<RectTransform>();
+            _panelCg = panelRoot.GetComponent<CanvasGroup>();
+            if (_panelCg == null) _panelCg = panelRoot.AddComponent<CanvasGroup>();
+            if (_panelRt == null) _panelRt = panelRoot.AddComponent<RectTransform>();
+
+            panelRoot.SetActive(true);
+            _panelCg.alpha = 0f;
+            _panelRt.localScale = minScale;
+            _panelVisible = false;
+        }
+
         if (panelImage && panelSprite) panelImage.sprite = panelSprite;
         if (panelText && !string.IsNullOrEmpty(panelContent)) panelText.text = panelContent;
     }
 
     private void Update()
     {
-        // 可选：高亮渐隐
+        // 高亮渐隐
         if (highlightObject != null && useFadeForHighlight && _hlCg != null)
         {
             float target = _playerInRange ? 1f : 0f;
             _hlCg.alpha = Mathf.MoveTowards(_hlCg.alpha, target, highlightFadeSpeed * Time.deltaTime);
         }
 
-        // 进入范围内，点物体 → 打开面板
+        // 打开/关闭检测
         if (_playerInRange && !_panelOpen && Input.GetMouseButtonDown(0))
         {
             if (IsMouseClickHittingMe()) OpenPanel();
         }
-        // 面板打开时，任意点击 → 关面板并启动对话流程（走你的 DialogueManager）
         else if (_panelOpen && Input.GetMouseButtonDown(0))
         {
             ClosePanelAndStartDialogue();
+        }
+
+        // 平滑动画逻辑
+        if (enablePanelAnimation && _panelCg != null && _panelRt != null)
+        {
+            _panelCg.alpha = Mathf.MoveTowards(_panelCg.alpha, _targetAlpha, fadeSpeed * Time.deltaTime);
+            _panelRt.localScale = Vector3.Lerp(_panelRt.localScale, _targetScale, Time.deltaTime * scaleSpeed);
         }
     }
 
     private bool IsMouseClickHittingMe()
     {
-        // 屏幕坐标 → 世界坐标 → 2D 射线点击自身 Collider
         Vector3 mouseWorld = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         Vector2 pos2d = new Vector2(mouseWorld.x, mouseWorld.y);
         RaycastHit2D hit = Physics2D.Raycast(pos2d, Vector2.zero, 0.01f);
@@ -90,30 +119,46 @@ public class InteractableObject_Letter : MonoBehaviour
     private void OpenPanel()
     {
         _panelOpen = true;
+        _panelVisible = true;
 
         if (panelImage && panelSprite) panelImage.sprite = panelSprite;
         if (panelText) panelText.text = panelContent;
 
         if (panelRoot) panelRoot.SetActive(true);
+
+        if (enablePanelAnimation && _panelCg != null)
+        {
+            _targetAlpha = 1f;
+            _targetScale = Vector3.one;
+        }
+
         PlayUISfx(sfxOpenPanel);
     }
 
     private void ClosePanelAndStartDialogue()
     {
         _panelOpen = false;
-        if (panelRoot) panelRoot.SetActive(false);
+        _panelVisible = false;
+
+        if (enablePanelAnimation && _panelCg != null)
+        {
+            _targetAlpha = 0f;
+            _targetScale = minScale;
+            // 延迟隐藏（避免瞬间消失）
+            StartCoroutine(HidePanelAfterFade());
+        }
+        else if (panelRoot)
+        {
+            panelRoot.SetActive(false);
+        }
+
         PlayUISfx(sfxClosePanel);
 
-        // —— 进入你的对话系统 ——
         if (dialogueManager != null)
         {
-            if (overrideDialogueLines && dialogueLinesToUse != null && dialogueLinesToUse.Count > 0)
-            {
-                // 用这份对白覆盖 DialogueManager 的对白
+            if (overrideDialogueLines && dialogueLinesToUse.Count > 0)
                 dialogueManager.dialogueLines = new List<DialogueLine>(dialogueLinesToUse);
-            }
 
-            // 直接调用你已有的启动方法（无需按回车）
             dialogueManager.StartDialogue();
         }
         else
@@ -122,9 +167,16 @@ public class InteractableObject_Letter : MonoBehaviour
         }
     }
 
+    private System.Collections.IEnumerator HidePanelAfterFade()
+    {
+        yield return new WaitForSeconds(0.3f);
+        if (!_panelVisible && panelRoot != null) panelRoot.SetActive(false);
+    }
+
     private void PlayUISfx(AudioClip clip)
     {
-        if (uiAudioSource != null && clip != null) uiAudioSource.PlayOneShot(clip);
+        if (uiAudioSource != null && clip != null)
+            uiAudioSource.PlayOneShot(clip);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -132,7 +184,8 @@ public class InteractableObject_Letter : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             _playerInRange = true;
-            if (highlightObject != null && !useFadeForHighlight) highlightObject.SetActive(true);
+            if (highlightObject != null && !useFadeForHighlight)
+                highlightObject.SetActive(true);
         }
     }
 
@@ -141,7 +194,9 @@ public class InteractableObject_Letter : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             _playerInRange = false;
-            if (highlightObject != null && !useFadeForHighlight) highlightObject.SetActive(false);
+            if (highlightObject != null && !useFadeForHighlight)
+                highlightObject.SetActive(false);
         }
     }
 }
+
