@@ -36,7 +36,8 @@ public class InteractableObject_Enlarge : IInteractable2D
         }
 
         theImage.sprite = curSprite;
-        thrDescription.text = description;
+        if(thrDescription != null)
+            thrDescription.text = description;
 
         if (isShown)
         {

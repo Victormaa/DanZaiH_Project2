@@ -17,7 +17,6 @@ public class InteractableObject_Letter : MonoBehaviour
     public GameObject panelRoot;
     public Image panelImage;
     public TMP_Text panelText;
-    [TextArea(2, 6)] public string panelContent;
     public Sprite panelSprite;
     public AudioSource uiAudioSource;
     public AudioClip sfxOpenPanel;
@@ -78,7 +77,6 @@ public class InteractableObject_Letter : MonoBehaviour
         }
 
         if (panelImage && panelSprite) panelImage.sprite = panelSprite;
-        if (panelText && !string.IsNullOrEmpty(panelContent)) panelText.text = panelContent;
     }
 
     private void Update()
@@ -93,7 +91,8 @@ public class InteractableObject_Letter : MonoBehaviour
         // ´ò¿ª/¹Ø±Õ¼ì²â
         if (_playerInRange && !_panelOpen && Input.GetMouseButtonDown(0))
         {
-            if (IsMouseClickHittingMe()) OpenPanel();
+            //if (IsMouseClickHittingMe()) OpenPanel();
+            OpenPanel();
         }
         else if (_panelOpen && Input.GetMouseButtonDown(0))
         {
@@ -122,7 +121,6 @@ public class InteractableObject_Letter : MonoBehaviour
         _panelVisible = true;
 
         if (panelImage && panelSprite) panelImage.sprite = panelSprite;
-        if (panelText) panelText.text = panelContent;
 
         if (panelRoot) panelRoot.SetActive(true);
 
