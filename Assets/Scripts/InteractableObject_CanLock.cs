@@ -218,6 +218,18 @@ public class InteractableObject_CanLock : IInteractable2D
         if (highlightCo != null) StopCoroutine(highlightCo);
         highlightCo = StartCoroutine(CoFlashHighlight());
     }
+    // ===== 粘贴到 InteractableObject_CanLock 类内部 =====
+    public void OnKeyDeliveredExternally()
+    {
+        if (!isLocked) return;           // 已经开过就不重复
+        isLocked = false;                // 设为开锁
+        isOpenedOnce = false;            // 还没领过奖励
+        isBusy = false;                  // 确保不阻塞
+
+        // 这里不直接播放动画与发奖励，按你的需求：玩家再按一次F进入 PlayGetItemAndGive()
+        Debug.Log("[Cabinet] Unlocked by physical key (KeyZone). Press F to claim reward.");
+    }
+
 
     private IEnumerator CoFlashHighlight()
     {

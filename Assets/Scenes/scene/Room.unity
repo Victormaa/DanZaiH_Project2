@@ -333,7 +333,6 @@ GameObject:
   - component: {fileID: 174264242}
   - component: {fileID: 174264241}
   - component: {fileID: 174264244}
-  - component: {fileID: 174264243}
   - component: {fileID: 174264245}
   m_Layer: 0
   m_Name: horse
@@ -414,25 +413,6 @@ Transform:
   - {fileID: 1017954871}
   m_Father: {fileID: 495804034}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &174264243
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 174264240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0d263f4f81e28408c22ae50b20a72a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tipsIcon: {fileID: 1660335854}
-  description: 
-  thePanel: {fileID: 904375151}
-  panelAnimator: {fileID: 904375153}
-  theImage: {fileID: 1017954872}
-  thrDescription: {fileID: 1944935727}
-  curSprite: {fileID: 0}
 --- !u!61 &174264244
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -491,14 +471,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerTag: Player
-  highlightObject: {fileID: 0}
+  highlightObject: {fileID: 1660335854}
   useFadeForHighlight: 1
   highlightFadeSpeed: 10
   oneShot: 0
   allowKeyInteract: 1
-  interactKey: 0
-  dialogueManager: {fileID: 0}
-  objectDialogueLines: []
+  interactKey: 102
+  dialogueManager: {fileID: 417065014}
+  objectDialogueLines:
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 1973509390921728
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 16049792777252864
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
   references:
     version: 2
     RefIds: []
@@ -1642,8 +1656,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.023249984, y: 0.36195004, z: 0}
-    m_Extent: {x: 2.1733499, y: 3.38725, z: 0}
+    m_Center: {x: -0.022900105, y: 0.36205006, z: 0}
+    m_Extent: {x: 2.1745, y: 3.38855, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -1991,15 +2005,18 @@ GameObject:
   - component: {fileID: 578948474}
   - component: {fileID: 578948473}
   - component: {fileID: 578948475}
-  - component: {fileID: 578948476}
   - component: {fileID: 578948477}
+  - component: {fileID: 578948479}
+  - component: {fileID: 578948478}
+  - component: {fileID: 578948480}
+  - component: {fileID: 578948481}
   m_Layer: 0
   m_Name: key2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &578948473
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2042,7 +2059,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 5
   m_Sprite: {fileID: 21300000, guid: 5d04b8487cfda1e4284d48d1091c3392, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -2088,33 +2105,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!50 &578948476
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578948472}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!114 &578948477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2127,6 +2117,114 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0aa9bb8bf0dee7e4990959901d43cdbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &578948478
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578948472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 252f59c0700661a4282ae4a925f245e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cam: {fileID: 0}
+  constrainToScreen: 1
+  zDepth: 0
+  raiseSortingWhileDrag: 1
+  dragSortingOrder: 999
+  snapTarget: {fileID: 0}
+  snapDistance: 0.3
+--- !u!61 &578948479
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578948472}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.43, y: 0.46}
+    newSize: {x: 0.43, y: 0.46}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.43, y: 0.46}
+  m_EdgeRadius: 0
+--- !u!114 &578948480
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578948472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5ff5ad23d62e6e498e2869c1bff3b89, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyId: CabinetKey
+  fadeDuration: 0.35
+  destroyOnConsumed: 1
+  vanishSfx: {fileID: 0}
+  IsConsumed: 0
+--- !u!50 &578948481
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 578948472}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!1 &585052277
 GameObject:
   m_ObjectHideFlags: 0
@@ -5219,6 +5317,8 @@ GameObject:
   - component: {fileID: 1335611027}
   - component: {fileID: 1335611028}
   - component: {fileID: 1335611029}
+  - component: {fileID: 1335611031}
+  - component: {fileID: 1335611030}
   m_Layer: 0
   m_Name: desk
   m_TagString: Untagged
@@ -5416,6 +5516,67 @@ MonoBehaviour:
   fallbackAnimDuration: 1.2
   playerInventory: {fileID: 0}
   rewardItemId: SomeLoot
+--- !u!61 &1335611030
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335611023}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.11, y: 1.26}
+    newSize: {x: 5.11, y: 1.26}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5.19, y: 1.48}
+  m_EdgeRadius: 0
+--- !u!114 &1335611031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335611023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d179c4046df66469d7bb7ae32f062d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cabinet: {fileID: 1335611029}
+  oneTime: 1
+  playCabinetUnlockSound: 1
+  showFPromptAfterUnlock: 1
 --- !u!1 &1370061443
 GameObject:
   m_ObjectHideFlags: 0

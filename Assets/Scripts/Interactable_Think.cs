@@ -4,14 +4,6 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-/// <summary>
-/// 2D 交互物体：
-/// - 玩家带指定 Tag 进入触发区时显示高光图片（可选择淡入/淡出）
-/// - 在范围内点击物体（或按 F）触发对话：把本物体配置的 DialogueLines 注入到现有 DialogueManager，并调用 StartDialogue()
-/// 依赖：
-/// - 自身挂载 BoxCollider2D，勾选 isTrigger
-/// - （可选）一个“高光图片”对象：可以是 SpriteRenderer 或 UI Image（都支持）
-/// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 public class Interactable_DialogueObject2D : MonoBehaviour
 {
@@ -32,8 +24,9 @@ public class Interactable_DialogueObject2D : MonoBehaviour
     [Tooltip("是否只触发一次对话")]
     public bool oneShot = false;
     private bool hasTriggeredOnce = false;
-    [Tooltip("是否允许按 F 键交互（与点击并存）")]
-    public bool allowKeyInteract = true;
+
+    [Tooltip("是否允许按 F 键交互（与点击并存）——本版默认关闭")]
+    public bool allowKeyInteract = false;          // 默认关闭键盘触发
     public KeyCode interactKey = KeyCode.F;
 
     [Header("对话管理器（引用你场景中的 DialogueManager）")]
@@ -56,6 +49,13 @@ public class Interactable_DialogueObject2D : MonoBehaviour
 
             // 初始隐藏
             SetHighlightAlphaImmediate(0f);
+
+            // 关键：UI 高光不吃射线，避免挡住点击
+            if (highlightImg != null)
+            {
+                highlightImg.raycastTarget = false;
+            }
+
             highlightObject.SetActive(true); // 让它可控，但初始透明
         }
 
@@ -74,7 +74,7 @@ public class Interactable_DialogueObject2D : MonoBehaviour
             SetHighlightAlphaImmediate(nextA);
         }
 
-        // 键盘交互
+        // （可选）键盘交互 —— 默认关闭
         if (allowKeyInteract && isPlayerInRange && Input.GetKeyDown(interactKey))
         {
             TryStartDialogue();
@@ -84,8 +84,23 @@ public class Interactable_DialogueObject2D : MonoBehaviour
     // 鼠标点击（需要物体上有 2D Collider；OnMouseDown 对 2D 一样生效）
     private void OnMouseDown()
     {
-        if (isPlayerInRange) // 只允许范围内点击
+        // 只允许在触发区内点击
+        if (!isPlayerInRange) return;
+
+        // 加一道保险：确保点击到的就是自己（避免叠层误触）
+        var cam = Camera.main;
+        if (cam != null)
         {
+            Vector2 mouseWorld = cam.ScreenToWorldPoint(Input.mousePosition);
+            var hit = Physics2D.Raycast(mouseWorld, Vector2.zero, 0f);
+            if (hit.collider != null && hit.collider.gameObject == gameObject)
+            {
+                TryStartDialogue();
+            }
+        }
+        else
+        {
+            // 没有主摄像机会退到原逻辑
             TryStartDialogue();
         }
     }
@@ -165,13 +180,12 @@ public class Interactable_DialogueObject2D : MonoBehaviour
         if (highlightImg != null)
         {
             var c = highlightImg.color; c.a = a; highlightImg.color = c;
-            // 避免 UI 高光挡住点击：完全透明时不吃射线
-            highlightImg.raycastTarget = a > 0.01f;
+            // 这里保持 raycastTarget = false，避免 UI 层挡住点击
+            highlightImg.raycastTarget = false;
         }
     }
     #endregion
 
-    // 可选：在 Scene 里可视化触发框
 #if UNITY_EDITOR
     private void OnDrawGizmosSelected()
     {
@@ -187,4 +201,3 @@ public class Interactable_DialogueObject2D : MonoBehaviour
     }
 #endif
 }
-
