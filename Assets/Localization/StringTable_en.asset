@@ -143,6 +143,11 @@ MonoBehaviour:
       looks at me with the same disdain.)"
     m_Metadata:
       m_Items: []
+  - m_Id: 15885906249838592
+    m_Localized: "(The \u201Celdest son\u201D they mentioned must have been my father\u2014I
+      never expected he had been a missionary before leaving home.)"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
