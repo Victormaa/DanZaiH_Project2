@@ -409,6 +409,30 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 7938530870175792727, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938530870175792727, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938530870175792727, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938530870175792727, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938530870175792727, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7938530870175792727, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -180
+      objectReference: {fileID: 0}
     - target: {fileID: 8319214057380964566, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -1794,8 +1818,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.05550003, y: -0.69850004, z: 0}
-    m_Extent: {x: 1.9493, y: 3.1205, z: 0}
+    m_Center: {x: -0.054150045, y: -0.69799995, z: 0}
+    m_Extent: {x: 1.94905, y: 3.121, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
