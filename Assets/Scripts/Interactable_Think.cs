@@ -25,10 +25,6 @@ public class Interactable_DialogueObject2D : MonoBehaviour
     public bool oneShot = false;
     private bool hasTriggeredOnce = false;
 
-    [Tooltip("是否允许按 F 键交互（与点击并存）——本版默认关闭")]
-    public bool allowKeyInteract = false;          // 默认关闭键盘触发
-    public KeyCode interactKey = KeyCode.F;
-
     [Header("对话管理器（引用你场景中的 DialogueManager）")]
     public DialogueManager dialogueManager;
 
@@ -73,12 +69,6 @@ public class Interactable_DialogueObject2D : MonoBehaviour
             float nextA = Mathf.MoveTowards(curA, targetHighlightAlpha, highlightFadeSpeed * Time.deltaTime);
             SetHighlightAlphaImmediate(nextA);
         }
-
-        // （可选）键盘交互 —— 默认关闭
-        if (allowKeyInteract && isPlayerInRange && Input.GetKeyDown(interactKey))
-        {
-            TryStartDialogue();
-        }
     }
 
     // 鼠标点击（需要物体上有 2D Collider；OnMouseDown 对 2D 一样生效）
@@ -87,7 +77,7 @@ public class Interactable_DialogueObject2D : MonoBehaviour
         // 只允许在触发区内点击
         if (!isPlayerInRange) return;
 
-        // 加一道保险：确保点击到的就是自己（避免叠层误触）
+        // 保险：确保点击到的就是自己（避免叠层误触）
         var cam = Camera.main;
         if (cam != null)
         {
@@ -180,7 +170,7 @@ public class Interactable_DialogueObject2D : MonoBehaviour
         if (highlightImg != null)
         {
             var c = highlightImg.color; c.a = a; highlightImg.color = c;
-            // 这里保持 raycastTarget = false，避免 UI 层挡住点击
+            // 保持 raycastTarget = false，避免 UI 层挡住点击
             highlightImg.raycastTarget = false;
         }
     }

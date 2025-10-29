@@ -2,11 +2,11 @@
 using UnityEngine;
 
 /// <summary>
-/// 交互柜：
-/// - 进入触发区显示F提示；
-/// - 按F即刻闪烁高光；
-/// - 锁住+无钥匙：播放上锁音效（可选叠加音频A），不发物；
-/// - 锁住+有钥匙：解锁→音频B→获得物品动画→动画结束入背包；
+/// 交互柜（拖钥匙自动解锁与发奖，Reward 渐显并定格）
+/// - 钥匙(KeyToken.keyId)拖入触发区：解锁→音效→Reward 渐显→入背包
+/// - 动画播放完后物品定格在最后一帧保持可见
+/// - 若无 Animator，用 CanvasGroup 渐显并常驻
+/// - 兼容 OnKeyDeliveredExternally() 外部调用
 /// </summary>
 [RequireComponent(typeof(BoxCollider2D))]
 [DisallowMultipleComponent]
@@ -16,172 +16,204 @@ public class InteractableObject_CanLock : IInteractable2D
     public bool isLocked = true;
     public string requiredKeyId = "CabinetKey";
     private bool isOpenedOnce = false;
-    private bool isBusy = false; // 防止重复触发流程
+    private bool isBusy = false;
+    private bool wasLockedAtStart = true;
 
     [Header("UI / Visual")]
-    public GameObject highlightImage;   // 高光图片（子物体），默认关闭
-    public GameObject fKeyPrompt;       // F提示图标（子物体），默认关闭
-    public float highlightFlashDuration = 0.2f; // 按F时闪一下
+    public GameObject highlightImage;
+    public GameObject fKeyPrompt;
+    public float highlightFlashDuration = 0.2f;
     private Coroutine highlightCo;
 
     [Header("Audio")]
-    public AudioClip lockedSound;   // 锁住时的反馈音（你要求必播）
-    public AudioClip noKeySoundA;   // 可选：无钥匙提示音
-    public AudioClip unlockSoundB;  // 解锁成功音
+    public AudioClip lockedSound;
+    public AudioClip noKeySoundA;
+    public AudioClip unlockSoundB;
     private AudioSource audioSource;
 
     [Header("Reward / Animation")]
-    public GameObject rewardPrefab;     // 可选：场景里弹出展示物
-    public Transform rewardSpawnPoint;  // 可选：展示物生成点
-    public GameObject getItemAnimObject; // 获得物品动画（带Animator，默认关闭）
+    public GameObject rewardPrefab;
+    public Transform rewardSpawnPoint;
+    public GameObject getItemAnimObject;
     public string getItemAnimTrigger = "Play";
     public float fallbackAnimDuration = 1.2f;
 
+    [Tooltip("当没有 Animator 时，使用 CanvasGroup 的淡入时长")]
+    public float rewardFadeDuration = 0.6f;
+    [Tooltip("淡入完成后的停留时间（备用）")]
+    public float rewardDisplayHold = 0.5f;
+
     [Header("Inventory")]
-    public InventoryLike playerInventory;  // 你的背包脚本（示例）
+    public InventoryLike playerInventory;
     public string rewardItemId = "SomeLoot";
 
+    // 缓存
     private Animator getItemAnimator;
+    private CanvasGroup rewardCG;
     private bool isPlayerNearby = false;
 
     private void Awake()
     {
-        // 确保触发器
         var col = GetComponent<Collider2D>();
         if (col != null) col.isTrigger = true;
 
-        // AudioSource
+        wasLockedAtStart = isLocked;
+
         audioSource = GetComponent<AudioSource>();
         if (audioSource == null) audioSource = gameObject.AddComponent<AudioSource>();
 
-        // 高光与F提示默认关闭
         if (highlightImage) highlightImage.SetActive(false);
         if (fKeyPrompt) fKeyPrompt.SetActive(false);
 
-        // 动画器
         if (getItemAnimObject)
         {
             getItemAnimator = getItemAnimObject.GetComponent<Animator>();
+            rewardCG = getItemAnimObject.GetComponent<CanvasGroup>();
+            if (rewardCG == null) rewardCG = getItemAnimObject.AddComponent<CanvasGroup>();
+
             getItemAnimObject.SetActive(false);
+            rewardCG.alpha = 0f;
         }
     }
 
-    private void Update()
-    {
-        // 在范围内才处理键入
-        if (!isPlayerNearby || isBusy) return;
-
-        // 进入区域即显示F提示（你现在的需求如此）
-        if (fKeyPrompt && !fKeyPrompt.activeSelf)
-            fKeyPrompt.SetActive(true);
-
-        // F 键触发
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            // 按F就让高光闪一下（视觉反馈更直接）
-            FlashHighlight();
-
-            // 走交互流程
-            TryInteractByKey();
-        }
-    }
+    private void Update() { }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-        isPlayerNearby = true;
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearby = true;
+            if (fKeyPrompt) fKeyPrompt.SetActive(false);
+            return;
+        }
 
-        // 进入区域，只显示F提示，不立刻高亮（高光在按F时出现）
-        if (fKeyPrompt) fKeyPrompt.SetActive(true);
+        var key = other.GetComponent<KeyToken>();
+        if (key != null && isLocked && !isBusy)
+        {
+            if (!string.IsNullOrEmpty(requiredKeyId) && key.keyId == requiredKeyId)
+                StartCoroutine(UnlockAndAutoRewardSequence());
+            else
+            {
+                PlayOneShot(lockedSound);
+                PlayOneShot(noKeySoundA);
+                Debug.Log("[Cabinet] Wrong key token.");
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (!other.CompareTag("Player")) return;
-        isPlayerNearby = false;
-
-        if (fKeyPrompt) fKeyPrompt.SetActive(false);
-        if (highlightImage) highlightImage.SetActive(false);
+        if (other.CompareTag("Player"))
+        {
+            isPlayerNearby = false;
+            if (highlightImage) highlightImage.SetActive(false);
+        }
     }
 
     public override void Interact()
     {
         if (!isPlayerNearby || isBusy) return;
-        // 与统一逻辑保持一致：按F效果
-        FlashHighlight();
-        TryInteractByKey();
-    }
-
-    private void TryInteractByKey()
-    {
-        if (isOpenedOnce || isBusy) return;
 
         if (isLocked)
         {
-            if (!HasRequiredKey())
-            {
-                // 锁住 + 无钥匙：播放上锁音效（你明确要求），可选叠加A
-                PlayOneShot(lockedSound);
-                PlayOneShot(noKeySoundA);
-                Debug.Log("[Cabinet] Locked & No Key: played lockedSound (and A if set).");
-                return;
-            }
-
-            // 锁住 + 有钥匙：解锁→音频B→动画→入背包
-            StartCoroutine(UnlockAndRewardSequence());
-        }
-        else
-        {
-            // 已解锁但未发奖（兜底）
-            if (!isOpenedOnce)
-            {
-                StartCoroutine(PlayGetItemAndGive());
-            }
+            PlayOneShot(lockedSound);
+            PlayOneShot(noKeySoundA);
         }
     }
 
-    private IEnumerator UnlockAndRewardSequence()
+    public void OnKeyDeliveredExternally()
+    {
+        if (isBusy) return;
+        if (isLocked)
+            StartCoroutine(UnlockAndAutoRewardSequence());
+    }
+
+    private IEnumerator UnlockAndAutoRewardSequence()
     {
         isBusy = true;
+        bool shouldAutoReward = wasLockedAtStart && isLocked && !isOpenedOnce;
+        isLocked = false;
 
-        isLocked = false; // 先标记为已解锁，避免多次触发
         PlayOneShot(unlockSoundB);
-        Debug.Log("[Cabinet] Unlocked with key. Playing B and reward flow.");
+        Debug.Log("[Cabinet] Unlocked by key. Auto reward flow if needed.");
 
-        yield return StartCoroutine(PlayGetItemAndGive());
+        if (shouldAutoReward)
+            yield return StartCoroutine(PlayRewardAppearAndGive());
 
         isBusy = false;
     }
 
-    private IEnumerator PlayGetItemAndGive()
+    /// <summary>
+    /// 奖励渐显并永久定格在最后一帧
+    /// </summary>
+    private IEnumerator PlayRewardAppearAndGive()
     {
         isOpenedOnce = true;
 
-        // 可选：场景展示一个小物
         if (rewardPrefab && rewardSpawnPoint)
             Instantiate(rewardPrefab, rewardSpawnPoint.position, Quaternion.identity);
 
         float waitTime = fallbackAnimDuration;
+
+        // ---- Animator 路径：动画后定格 ----
         if (getItemAnimator && getItemAnimObject)
         {
             getItemAnimObject.SetActive(true);
+            getItemAnimator.speed = 1f;
             getItemAnimator.ResetTrigger(getItemAnimTrigger);
             getItemAnimator.SetTrigger(getItemAnimTrigger);
 
-            // 等一帧让 Animator 切到状态，再取时长
             yield return null;
             var st = getItemAnimator.GetCurrentAnimatorStateInfo(0);
             if (st.length > 0.05f) waitTime = st.length;
 
             yield return new WaitForSeconds(waitTime);
-            getItemAnimObject.SetActive(false);
+
+            // ⭐ 定格在最后一帧
+            getItemAnimator.speed = 0f;
+
+            // 彻底静止物理运动
+            var rb = getItemAnimObject.GetComponent<Rigidbody2D>();
+            if (rb)
+            {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
+        }
+        // ---- CanvasGroup 路径：淡入常驻 ----
+        else if (getItemAnimObject && rewardCG)
+        {
+            getItemAnimObject.SetActive(true);
+            rewardCG.alpha = 0f;
+
+            float t = 0f;
+            while (t < rewardFadeDuration)
+            {
+                t += Time.deltaTime;
+                rewardCG.alpha = Mathf.Clamp01(t / rewardFadeDuration);
+                yield return null;
+            }
+
+            // 常驻：保持 alpha = 1
+            rewardCG.alpha = 1f;
+
+            var rb = getItemAnimObject.GetComponent<Rigidbody2D>();
+            if (rb)
+            {
+                rb.velocity = Vector2.zero;
+                rb.angularVelocity = 0f;
+                rb.bodyType = RigidbodyType2D.Kinematic;
+                rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            }
         }
         else
         {
             yield return new WaitForSeconds(waitTime);
         }
 
-        // 动画结束 → 入背包
+        // 入背包
         if (playerInventory != null && !string.IsNullOrEmpty(rewardItemId))
         {
             playerInventory.AddItem(rewardItemId, 1);
@@ -192,15 +224,7 @@ public class InteractableObject_CanLock : IInteractable2D
             Debug.LogWarning("[Cabinet] Inventory or rewardItemId not set.");
         }
 
-        // 清理 UI
-        if (fKeyPrompt) fKeyPrompt.SetActive(false);
         if (highlightImage) highlightImage.SetActive(false);
-    }
-
-    private bool HasRequiredKey()
-    {
-        if (playerInventory == null || string.IsNullOrEmpty(requiredKeyId)) return false;
-        return playerInventory.HasItem(requiredKeyId);
     }
 
     private void PlayOneShot(AudioClip clip)
@@ -213,46 +237,32 @@ public class InteractableObject_CanLock : IInteractable2D
     private void FlashHighlight()
     {
         if (!highlightImage) return;
-
-        // 取消上一个闪烁
         if (highlightCo != null) StopCoroutine(highlightCo);
         highlightCo = StartCoroutine(CoFlashHighlight());
     }
-    // ===== 粘贴到 InteractableObject_CanLock 类内部 =====
-    public void OnKeyDeliveredExternally()
-    {
-        if (!isLocked) return;           // 已经开过就不重复
-        isLocked = false;                // 设为开锁
-        isOpenedOnce = false;            // 还没领过奖励
-        isBusy = false;                  // 确保不阻塞
-
-        // 这里不直接播放动画与发奖励，按你的需求：玩家再按一次F进入 PlayGetItemAndGive()
-        Debug.Log("[Cabinet] Unlocked by physical key (KeyZone). Press F to claim reward.");
-    }
-
 
     private IEnumerator CoFlashHighlight()
     {
         highlightImage.SetActive(true);
         yield return new WaitForSeconds(highlightFlashDuration);
-        // 若流程正忙（比如解锁播放动画期间），保持高光开着会更直观
-        // 但你需求是“按F出现高光”，所以忙时也关掉，统一手感
         highlightImage.SetActive(false);
         highlightCo = null;
     }
 
-    // 外部直接解锁（可选）
-    public void Unlock()
+    public void UnlockExternallyAndAutoReward()
     {
-        if (!isLocked) return;
-        isLocked = false;
-        Debug.Log("[Cabinet] Unlocked externally.");
+        if (!isLocked || isBusy) return;
+        StartCoroutine(UnlockAndAutoRewardSequence());
     }
 }
 
-/// <summary>
-/// 非正式背包示例（保持与你之前一致）
-/// </summary>
+/// <summary> 钥匙标记脚本 </summary>
+public class KeyToken : MonoBehaviour
+{
+    public string keyId = "CabinetKey";
+}
+
+/// <summary> 简易背包示例 </summary>
 public class InventoryLike : MonoBehaviour
 {
     private readonly System.Collections.Generic.Dictionary<string, int> items =
@@ -278,9 +288,7 @@ public class InventoryLike : MonoBehaviour
     private void Start()
     {
         if (giveTestKeyOnStart && !string.IsNullOrEmpty(testKeyId))
-        {
             AddItem(testKeyId, 1);
-        }
     }
 }
 
