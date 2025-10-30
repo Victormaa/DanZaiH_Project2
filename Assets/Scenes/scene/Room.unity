@@ -2080,7 +2080,6 @@ GameObject:
   - component: {fileID: 578948474}
   - component: {fileID: 578948473}
   - component: {fileID: 578948475}
-  - component: {fileID: 578948477}
   - component: {fileID: 578948479}
   - component: {fileID: 578948478}
   - component: {fileID: 578948480}
@@ -2180,18 +2179,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &578948477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 578948472}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa9bb8bf0dee7e4990959901d43cdbe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &578948478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2485,8 +2472,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fadeDuration: 1
   imageFader: {fileID: 821150538}
-  backBagKey: {fileID: 0}
-  paintKey: {fileID: 0}
 --- !u!1 &657586642
 GameObject:
   m_ObjectHideFlags: 0
@@ -6771,6 +6756,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipsIcon: {fileID: 218775309}
   description: 
+  doorIndex: 11
+  targetDoorIndex: 21
   sceneName: Hall
 --- !u!1 &1777024182
 GameObject:

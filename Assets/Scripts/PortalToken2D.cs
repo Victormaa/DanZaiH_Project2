@@ -12,7 +12,8 @@ public class PortalToken2D : MonoBehaviour
     public bool useOnMouseClick = true;
 
     // 方式一：适用于带 2D Collider 的世界物体
-    private void OnMouseUpAsButton()
+    //private void OnMouseUpAsButton()
+    void OnMouseUp()
     {
         if (!useOnMouseClick) return;
         if (parentPortal == null) return;

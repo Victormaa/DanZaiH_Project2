@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Interactable_Door : IInteractable2D
 {
+    [Header("Door Setting")]
+    public int doorIndex;
+    public int targetDoorIndex;
+
     public string sceneName;
     
-
    
     public override void Interact()
     {

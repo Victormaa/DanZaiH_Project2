@@ -352,6 +352,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipsIcon: {fileID: 306331123}
   description: 
+  doorIndex: 22
+  targetDoorIndex: 31
   sceneName: Kitchen
 --- !u!1 &105977719
 GameObject:
@@ -1695,6 +1697,7 @@ GameObject:
   - component: {fileID: 1050048007}
   - component: {fileID: 1050048008}
   - component: {fileID: 1050048009}
+  - component: {fileID: 1050048010}
   m_Layer: 0
   m_Name: bottom (1)
   m_TagString: Untagged
@@ -1784,6 +1787,41 @@ MonoBehaviour:
   parentPortal: {fileID: 1601840428}
   destination: 0
   useOnMouseClick: 1
+--- !u!58 &1050048010
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050048006}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0000019073486, y: 0.000000059604645}
+  serializedVersion: 2
+  m_Radius: 0.245
 --- !u!1 &1285990802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1967,6 +2005,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipsIcon: {fileID: 642893892}
   description: 
+  doorIndex: 21
+  targetDoorIndex: 11
   sceneName: Room
 --- !u!61 &1321202788
 BoxCollider2D:
@@ -3086,6 +3126,7 @@ GameObject:
   - component: {fileID: 1948264446}
   - component: {fileID: 1948264447}
   - component: {fileID: 1948264448}
+  - component: {fileID: 1948264449}
   m_Layer: 0
   m_Name: bottom
   m_TagString: Untagged
@@ -3175,6 +3216,41 @@ MonoBehaviour:
   parentPortal: {fileID: 1601840428}
   destination: 1
   useOnMouseClick: 1
+--- !u!58 &1948264449
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1948264445}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.00000047683716, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.245
 --- !u!1 &1972174275
 GameObject:
   m_ObjectHideFlags: 0
