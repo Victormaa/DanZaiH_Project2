@@ -153,6 +153,11 @@ MonoBehaviour:
       between the black horse and the white horse?"
     m_Metadata:
       m_Items: []
+  - m_Id: 22981599049347072
+    m_Localized: The kitchen is shrouded in darkness. Perhaps finding a light source
+      is the only way to continue exploring.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

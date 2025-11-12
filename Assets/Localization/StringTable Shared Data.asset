@@ -143,6 +143,10 @@ MonoBehaviour:
     m_Key: "\u4E3B\u89D2Room1"
     m_Metadata:
       m_Items: []
+  - m_Id: 22981599049347072
+    m_Key: "\u4E3B\u89D2Kitchen"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
