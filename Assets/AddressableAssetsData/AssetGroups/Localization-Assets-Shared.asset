@@ -17,13 +17,15 @@ MonoBehaviour:
     m_SerializedData: []
   m_GUID: bbb6f918cf20b3f4e969d05edc47f40f
   m_SerializeEntries:
+  - m_GUID: 1c61908a28ec2c840b0754df6a7bb9b6
+    m_Address: boy
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Locale-zh-CN
+    FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 557c809a778924845a1a622eff0a5bd3
     m_Address: Assets/StringTable Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
-    FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: f02555ccabb3fbc4f87aa2db273ded36
-    m_Address: Assets/PortraitTable Shared Data.asset
     m_ReadOnly: 1
     m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
@@ -34,12 +36,10 @@ MonoBehaviour:
     - Locale-en
     - Locale-zh-CN
     FlaggedDuringContentUpdateRestriction: 0
-  - m_GUID: 1c61908a28ec2c840b0754df6a7bb9b6
-    m_Address: boy
+  - m_GUID: f02555ccabb3fbc4f87aa2db273ded36
+    m_Address: Assets/PortraitTable Shared Data.asset
     m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-en
-    - Locale-zh-CN
+    m_SerializedLabels: []
     FlaggedDuringContentUpdateRestriction: 0
   - m_GUID: 577be453f0dd71e469556d20e96f2393
     m_Address: alienSound2
