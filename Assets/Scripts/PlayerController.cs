@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     private float moveX, moveY;
     private Vector2 moveDirection;
     private Animator myAnim;
+
+    private bool isFreezed = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +29,9 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isFreezed)
+            return;
+
         inputSection();
         Flip();
     }
@@ -71,5 +76,13 @@ public class PlayerController : MonoBehaviour
     private void playerMove()
     {
         myRigidbody.velocity = new Vector2(moveDirection.x * runSpeed, moveDirection.y * runSpeed);
+    }
+    public void FreezeControl()
+    {
+        isFreezed = true;
+    }
+    public void UnfreezeControl()
+    {
+        isFreezed = false;
     }
 }

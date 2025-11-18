@@ -27,6 +27,8 @@ public class ItemACameraSwitcher : MonoBehaviour
 
     bool _playerInRange = false;
 
+    public PlayerController pc;
+
     void Start()
     {
         var col = GetComponent<Collider2D>();
@@ -81,7 +83,11 @@ public class ItemACameraSwitcher : MonoBehaviour
 
         // BallGame ÏÔÊ¾
         if (ballGameObject != null)
+        {
+            pc.FreezeControl();
+
             ballGameObject.SetActive(true);
+        }
     }
 
     void Update()
@@ -96,7 +102,10 @@ public class ItemACameraSwitcher : MonoBehaviour
 
             // Òþ²Ø BallGame
             if (ballGameObject != null)
+            {
+                pc.UnfreezeControl();
                 ballGameObject.SetActive(false);
+            }
         }
     }
 }

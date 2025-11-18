@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - ItemB
+  - WhiteBall
+  - GreyBall
+  - BlackBall
   layers:
   - Default
   - TransparentFX
