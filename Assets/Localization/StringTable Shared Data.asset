@@ -147,6 +147,14 @@ MonoBehaviour:
     m_Key: "\u4E3B\u89D2Kitchen"
     m_Metadata:
       m_Items: []
+  - m_Id: 24948152980533248
+    m_Key: New Entry
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24948378868969472
+    m_Key: "Hall\u4E3B\u89D2"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:

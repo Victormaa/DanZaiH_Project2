@@ -158,6 +158,10 @@ MonoBehaviour:
       is the only way to continue exploring.
     m_Metadata:
       m_Items: []
+  - m_Id: 24948378868969472
+    m_Localized: "Why is only my uncle\u2019s portrait hanging in the hall\u2026?"
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
