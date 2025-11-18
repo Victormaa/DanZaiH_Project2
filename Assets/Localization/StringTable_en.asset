@@ -162,6 +162,49 @@ MonoBehaviour:
     m_Localized: "Why is only my uncle\u2019s portrait hanging in the hall\u2026?"
     m_Metadata:
       m_Items: []
+  - m_Id: 24975560844570624
+    m_Localized: '? ? ?'
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24975859617427456
+    m_Localized: What is it that you seek?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24976384404549632
+    m_Localized: "A book\u2014one that describes a way to restore my broken body."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24976618991972352
+    m_Localized: I am a creation of the heavens, all-knowing and all-powerful.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24976848147771392
+    m_Localized: "Then please tell me\u2014how can I regain my body?"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24977089932619776
+    m_Localized: "Take this apple. Gather dried toads and black-and-white flowers,
+      then cast them into the town\u2019s well. That is the first step."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24977527767625728
+    m_Localized: Why throw them into the well? What does that have to do with my
+      body?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24977916248256512
+    m_Localized: You will understand soon enough.
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24978005649846272
+    m_Localized: And where can I find these things?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 24978318377152512
+    m_Localized: "For the dried toads, seek the answer in the room at the end of
+      the second floor. As for the flowers\u2014ask the fountain in the garden."
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

@@ -68,6 +68,10 @@ MonoBehaviour:
           m_TableCodes:
           - en
           - zh-CN
+        - m_KeyId: 20082673111592960
+          m_TableCodes:
+          - en
+          - zh-CN
         m_TypeString: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
           Culture=neutral, PublicKeyToken=null
     - rid: 915254741888401410

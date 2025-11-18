@@ -492,7 +492,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -1398, y: 103}
+  m_AnchoredPosition: {x: -1398, y: 75.7}
   m_SizeDelta: {x: 294, y: 509}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &167310152
@@ -523,7 +523,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1c61908a28ec2c840b0754df6a7bb9b6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2f4bf1b0e01d2574fa1b9e42326a9180, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -732,18 +732,18 @@ MonoBehaviour:
   objectDialogueLines:
   - speaker:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 24975560844570624
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     content:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 24975859617427456
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -752,49 +752,287 @@ MonoBehaviour:
       m_TableReference:
         m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
-        m_KeyId: 20082802547814400
+        m_KeyId: 20082673111592960
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
     voice:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 29604768444416
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
   - speaker:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 1973509390921728
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     content:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 24976384404549632
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
       m_LocalVariables: []
     portrait:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 170929745920
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
     voice:
       m_TableReference:
-        m_TableCollectionName: 
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
       m_TableEntryReference:
-        m_KeyId: 0
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24975560844570624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24976618991972352
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 20082673111592960
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 1973509390921728
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24976848147771392
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24975560844570624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24977089932619776
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 20082673111592960
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 1973509390921728
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24977527767625728
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24975560844570624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24977916248256512
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 20082673111592960
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 1973509390921728
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24978005649846272
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 170929745920
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+  - speaker:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24975560844570624
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    content:
+      m_TableReference:
+        m_TableCollectionName: GUID:557c809a778924845a1a622eff0a5bd3
+      m_TableEntryReference:
+        m_KeyId: 24978318377152512
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+      m_LocalVariables: []
+    portrait:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 20082673111592960
+        m_Key: 
+      m_FallbackState: 0
+      m_WaitForCompletion: 0
+    voice:
+      m_TableReference:
+        m_TableCollectionName: GUID:f02555ccabb3fbc4f87aa2db273ded36
+      m_TableEntryReference:
+        m_KeyId: 29604768444416
         m_Key: 
       m_FallbackState: 0
       m_WaitForCompletion: 0
@@ -910,7 +1148,7 @@ Transform:
   m_GameObject: {fileID: 445204448}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 21.489347, y: 2.6103075, z: -0.14921573}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -918,7 +1156,7 @@ Transform:
   - {fileID: 569148644}
   - {fileID: 93764410}
   - {fileID: 772105032}
-  m_Father: {fileID: 1045605708}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &464900305
 GameObject:
@@ -1266,7 +1504,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.33
+      value: -7.72
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1274,7 +1512,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1282,7 +1520,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1294,7 +1532,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
+      value: -180
       objectReference: {fileID: 0}
     - target: {fileID: 1813040318240535108, guid: 9d0a1fcec3d93274484c5dcd9d128369, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
@@ -1557,7 +1795,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 464900306}
-  - {fileID: 445204449}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1050104302
@@ -2953,7 +3190,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 5caf27acd0005584cb1f78f7ebc0dbac, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3203,7 +3440,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: b655ddabc49b69a4eaea42f3c1bf400a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3570,5 +3807,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1855623228}
   - {fileID: 1045605708}
+  - {fileID: 445204449}
   - {fileID: 1199461353}
   - {fileID: 1189907485}
