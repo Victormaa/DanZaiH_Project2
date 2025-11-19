@@ -205,6 +205,10 @@ MonoBehaviour:
       the second floor. As for the flowers\u2014ask the fountain in the garden."
     m_Metadata:
       m_Items: []
+  - m_Id: 25482170675294208
+    m_Localized: It seems like you need a key to open the door.
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

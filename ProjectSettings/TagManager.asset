@@ -8,6 +8,7 @@ TagManager:
   - WhiteBall
   - GreyBall
   - BlackBall
+  - key
   layers:
   - Default
   - TransparentFX
