@@ -41,7 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scene/Lab.unity
     guid: 976ce3776ac730441acab9f007c0d506
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/scene/Well 1.unity
     guid: 46fbffa733ace0142bf163c3c76f7742
   m_configObjects:

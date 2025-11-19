@@ -2083,8 +2083,8 @@ GameObject:
   m_Component:
   - component: {fileID: 979918490}
   - component: {fileID: 979918489}
-  - component: {fileID: 979918492}
   - component: {fileID: 979918491}
+  - component: {fileID: 979918492}
   m_Layer: 0
   m_Name: Ldoor
   m_TagString: Untagged
@@ -2214,16 +2214,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 979918488}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d0d263f4f81e28408c22ae50b20a72a, type: 3}
+  m_Script: {fileID: 11500000, guid: dcaa753f57a5f2841aa2a45f9787a729, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   tipsIcon: {fileID: 825820865}
   description: 
-  thePanel: {fileID: 0}
-  panelAnimator: {fileID: 0}
-  theImage: {fileID: 0}
-  thrDescription: {fileID: 0}
-  curSprite: {fileID: 0}
+  doorIndex: 0
+  targetDoorIndex: 0
+  sceneName: Hall
 --- !u!1 &1009500030
 GameObject:
   m_ObjectHideFlags: 0
