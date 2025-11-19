@@ -209,6 +209,20 @@ MonoBehaviour:
     m_Localized: It seems like you need a key to open the door.
     m_Metadata:
       m_Items: []
+  - m_Id: 25495273903288320
+    m_Localized: "It still doesn\u2019t seem to open."
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25496246566580224
+    m_Localized: Why is this painting in such a ruined state, and what kind of secrets
+      are hidden within the manor?
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25496499877376000
+    m_Localized: Why are there black horse statues everywhere in the manor? What
+      exactly do they symbolize?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

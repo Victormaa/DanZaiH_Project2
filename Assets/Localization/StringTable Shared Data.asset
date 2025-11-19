@@ -199,6 +199,18 @@ MonoBehaviour:
     m_Key: "\u4E3B\u89D2basement"
     m_Metadata:
       m_Items: []
+  - m_Id: 25495273903288320
+    m_Key: "\u4E3B\u89D2Hall2-1"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25496246566580224
+    m_Key: "\u4E3B\u89D2Hall2-2"
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25496499877376000
+    m_Key: "\u4E3B\u89D2Hall2-3"
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items: []
   m_KeyGenerator:
