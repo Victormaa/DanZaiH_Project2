@@ -4021,7 +4021,16 @@ MonoBehaviour:
   - {fileID: 85426307}
   - {fileID: 1517231178}
   itemSounds:
-  - {fileID: 0}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  - {fileID: 8300000, guid: d7338b399690f0046ae5ac59ba7df88d, type: 3}
+  delayBeforePlay: 0
 --- !u!61 &1327837033
 BoxCollider2D:
   m_ObjectHideFlags: 0

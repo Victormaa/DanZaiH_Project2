@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// 玩家靠近物体A显示高光，点击后依次播放物品B-J的动画和音效
+/// 玩家靠近物体A显示高光，点击后【延迟一段时间】依次播放物品B-J的动画和音效
 /// </summary>
 public class ItemA_Interact : MonoBehaviour
 {
@@ -19,10 +19,15 @@ public class ItemA_Interact : MonoBehaviour
     [Header("每个动画对应的音效")]
     public AudioClip[] itemSounds;     // 按顺序放置 9 个 AudioClip
 
+    [Header("点击后到动画播放的延迟时间（秒）")]
+    public float delayBeforePlay = 1f; // 你可以在 Inspector 里调，比如 0.5 / 1 / 2
+
     private AudioSource audioSource;
 
     private bool playerInRange = false;
     private int currentIndex = 0;      // 当前点击次数（0~8）
+
+    private bool canClick = true;      // 防止在延迟期间疯狂点击
 
     void Start()
     {
@@ -35,38 +40,53 @@ public class ItemA_Interact : MonoBehaviour
 
     void Update()
     {
-        // 玩家在范围内才检测点击
-        if (playerInRange && Input.GetMouseButtonDown(0))
+        // 玩家在范围内 & 当前允许点击时才检测点击
+        if (playerInRange && canClick && Input.GetMouseButtonDown(0))
         {
             // 将鼠标点击的物体转换成世界坐标检测
             Vector2 clickPos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(clickPos, Vector2.zero);
 
+            // 只有点击到当前这个物体A才会触发
             if (hit.collider != null && hit.collider.gameObject == gameObject)
             {
-                PlayNextAnimation();
+                // 这里不直接播放动画，而是开启一个带延迟的协程
+                StartCoroutine(PlayNextAnimationWithDelay());
             }
         }
     }
 
-    void PlayNextAnimation()
+    IEnumerator PlayNextAnimationWithDelay()
     {
+        // 先锁定点击，避免在等待期间多次点击
+        canClick = false;
+
         if (currentIndex >= itemAnimators.Length)
         {
             Debug.Log("所有动画都已经播放完了！");
-            return;
+            canClick = true; // 虽然没动画了，但可以继续点击，只是不会有反应
+            yield break;
         }
 
+        // 等待一段时间再播放动画和音效
+        yield return new WaitForSeconds(delayBeforePlay);
+
         // 播放动画
-        itemAnimators[currentIndex].SetTrigger("Play");
+        if (itemAnimators[currentIndex] != null)
+        {
+            itemAnimators[currentIndex].SetTrigger("Play");
+        }
 
         // 播放对应音效
-        if (itemSounds.Length > currentIndex)
+        if (audioSource != null && itemSounds.Length > currentIndex && itemSounds[currentIndex] != null)
         {
             audioSource.PlayOneShot(itemSounds[currentIndex]);
         }
 
         currentIndex++;
+
+        // 动画触发完，恢复可点击
+        canClick = true;
     }
 
     // 玩家进入触发范围 → 显示高光
@@ -75,7 +95,9 @@ public class ItemA_Interact : MonoBehaviour
         if (col.CompareTag(playerTag))
         {
             playerInRange = true;
-            highlightObject.SetActive(true);
+
+            if (highlightObject != null)
+                highlightObject.SetActive(true);
         }
     }
 
@@ -85,7 +107,9 @@ public class ItemA_Interact : MonoBehaviour
         if (col.CompareTag(playerTag))
         {
             playerInRange = false;
-            highlightObject.SetActive(false);
+
+            if (highlightObject != null)
+                highlightObject.SetActive(false);
         }
     }
 }
