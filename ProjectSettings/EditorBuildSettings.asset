@@ -21,8 +21,14 @@ EditorBuildSettings:
     path: Assets/Scenes/scene/basement.unity
     guid: 2e364e61d326c5545ab436b06e06b16d
   - enabled: 1
+    path: Assets/Scenes/scene/Black.unity
+    guid: fd8ebbabd2c392d49a3a7a26c143954e
+  - enabled: 1
     path: Assets/Scenes/scene/Hall.unity
     guid: e6e94d1dc0e61de4aaca94ecc952c460
+  - enabled: 1
+    path: Assets/Scenes/scene/2Hall.unity
+    guid: be14f3f473c1bc54d84cba13bc783bf5
   - enabled: 1
     path: Assets/Scenes/scene/HallDialogue.unity
     guid: a85497b43f15029468bcc364ee9f036b
@@ -41,9 +47,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scene/Lab.unity
     guid: 976ce3776ac730441acab9f007c0d506
-  - enabled: 1
-    path: Assets/Scenes/scene/Well 1.unity
-    guid: 46fbffa733ace0142bf163c3c76f7742
   - enabled: 1
     path: Assets/Scenes/scene/Manor.unity
     guid: e6434f7ee8c05c9478ae330ac7ccae36
