@@ -44,6 +44,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scene/Well 1.unity
     guid: 46fbffa733ace0142bf163c3c76f7742
+  - enabled: 1
+    path: Assets/Scenes/scene/Manor.unity
+    guid: e6434f7ee8c05c9478ae330ac7ccae36
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: ee29f893c72a737409dc49b80aff4436, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 9c8929d34063abb4390d45392757f166, type: 2}
