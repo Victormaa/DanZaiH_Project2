@@ -39,6 +39,10 @@ MonoBehaviour:
     m_Key: New Entry
     m_Metadata:
       m_Items: []
+  - m_Id: 23333992983228416
+    m_Key: Crow
+    m_Metadata:
+      m_Items: []
   m_Metadata:
     m_Items:
     - rid: 915254737774051334
@@ -69,6 +73,10 @@ MonoBehaviour:
           - en
           - zh-CN
         - m_KeyId: 20082673111592960
+          m_TableCodes:
+          - en
+          - zh-CN
+        - m_KeyId: 23333992983228416
           m_TableCodes:
           - en
           - zh-CN

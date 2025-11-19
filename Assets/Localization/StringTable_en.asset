@@ -223,6 +223,18 @@ MonoBehaviour:
       exactly do they symbolize?
     m_Metadata:
       m_Items: []
+  - m_Id: 25527104673476608
+    m_Localized: Crow
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25527220666953728
+    m_Localized: 1x9=1
+    m_Metadata:
+      m_Items: []
+  - m_Id: 25528912057790464
+    m_Localized: What secret is the statue hiding?
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []

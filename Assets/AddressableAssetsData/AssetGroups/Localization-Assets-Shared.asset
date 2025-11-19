@@ -62,6 +62,13 @@ MonoBehaviour:
     - Locale-en
     - Locale-zh-CN
     FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 53be275271a819a4db24d5ff2344b9d4
+    m_Address: crow
+    m_ReadOnly: 1
+    m_SerializedLabels:
+    - Locale-en
+    - Locale-zh-CN
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: d39f83ca2608449488478f56427f6181, type: 2}
   m_SchemaSet:

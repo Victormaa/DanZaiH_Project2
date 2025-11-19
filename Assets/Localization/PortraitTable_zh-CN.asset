@@ -38,6 +38,10 @@ MonoBehaviour:
     m_Localized: 2f4bf1b0e01d2574fa1b9e42326a9180[statue-dialogue]
     m_Metadata:
       m_Items: []
+  - m_Id: 23333992983228416
+    m_Localized: 53be275271a819a4db24d5ff2344b9d4[crow]
+    m_Metadata:
+      m_Items: []
   references:
     version: 2
     RefIds: []
