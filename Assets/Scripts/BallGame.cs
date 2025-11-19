@@ -10,13 +10,16 @@ public class BallGame : MonoBehaviour
     public ContainerZone container3;   // 对应 Container_3
 
     [Header("物品A动画")]
-    public Animator itemAAnimator;     // 物品A的 Animator
-    public string itemATrigger = "Play"; // 触发动画的 Trigger 名
+    public Animator itemAAnimator;         // 物品A的 Animator
+    public string itemATrigger = "Play";   // 触发动画的 Trigger 名
+
+    [Header("物品A显示设置")]
+    public bool hideItemAAtStart = true;   // 是否在一开始隐藏物品A
 
     [Header("音频A")]
-    public AudioSource audioA;         // 播放音频A的 AudioSource
+    public AudioSource audioA;             // 播放音频A的 AudioSource
 
-    bool hasPlayed = false;           // 防止重复播放
+    bool hasPlayed = false;               // 防止重复播放
 
     void Awake()
     {
@@ -26,6 +29,15 @@ public class BallGame : MonoBehaviour
             return;
         }
         Instance = this;
+    }
+
+    void Start()
+    {
+        // 开局根据设置隐藏物品A
+        if (hideItemAAtStart && itemAAnimator != null)
+        {
+            itemAAnimator.gameObject.SetActive(false);
+        }
     }
 
     /// <summary>
@@ -46,10 +58,18 @@ public class BallGame : MonoBehaviour
             container2.IsConditionMet() &&
             container3.IsConditionMet())
         {
-            // 播放物品A动画
-            if (itemAAnimator != null && !string.IsNullOrEmpty(itemATrigger))
+            // 先把物品A显示出来
+            if (itemAAnimator != null)
             {
-                itemAAnimator.SetTrigger(itemATrigger);
+                GameObject itemAGO = itemAAnimator.gameObject;
+                if (!itemAGO.activeSelf)
+                    itemAGO.SetActive(true);
+
+                // 再触发动画
+                if (!string.IsNullOrEmpty(itemATrigger))
+                {
+                    itemAAnimator.SetTrigger(itemATrigger);
+                }
             }
 
             // 播放音频A
@@ -59,7 +79,7 @@ public class BallGame : MonoBehaviour
             }
 
             hasPlayed = true;
-            Debug.Log("BallGame: 三个Container都正确，播放物品A动画和音频A。");
+            Debug.Log("BallGame: 三个Container都正确，显示物品A并播放动画和音频A。");
         }
     }
 }
