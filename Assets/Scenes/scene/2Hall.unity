@@ -4562,7 +4562,7 @@ MonoBehaviour:
   tokenUpObject: {fileID: 1634722645}
   tokenDownObject: {fileID: 1003291115}
   sceneNameUp: Level_Up
-  sceneNameDown: basement
+  sceneNameDown: Hall
   autoShowOnEnter: 1
 --- !u!50 &1601840429
 Rigidbody2D:
