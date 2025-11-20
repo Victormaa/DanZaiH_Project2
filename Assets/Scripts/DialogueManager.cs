@@ -252,6 +252,8 @@ public class DialogueManager : MonoBehaviour
         isDialoguePlaying = false;
         hasFinishedAllLines = true;
 
+        waitingForFirstEnter = true;
+        
         OnDialogueFinished?.Invoke();
     }
 
