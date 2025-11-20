@@ -74,6 +74,7 @@ public class ItemA_Interact : MonoBehaviour
         // ²¥·Å¶¯»­
         if (itemAnimators[currentIndex] != null)
         {
+            itemAnimators[currentIndex].gameObject.SetActive(true);
             itemAnimators[currentIndex].SetTrigger("Play");
         }
 
