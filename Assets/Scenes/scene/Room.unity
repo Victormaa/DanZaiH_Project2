@@ -1800,8 +1800,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.02215004, y: 0.36255002, z: 0}
-    m_Extent: {x: 2.17385, y: 3.38795, z: 0}
+    m_Center: {x: -0.022849917, y: 0.362, z: 0}
+    m_Extent: {x: 2.1742501, y: 3.3871, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -6683,11 +6683,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 553280390926356324, guid: 98133442349adf0459ba95ee1967a082, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.07999992
+      value: -8.36
       objectReference: {fileID: 0}
     - target: {fileID: 553280390926356324, guid: 98133442349adf0459ba95ee1967a082, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.029999018
+      value: 5.11
       objectReference: {fileID: 0}
     - target: {fileID: 553280390926356324, guid: 98133442349adf0459ba95ee1967a082, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6724,6 +6724,46 @@ PrefabInstance:
     - target: {fileID: 553280390926356331, guid: 98133442349adf0459ba95ee1967a082, type: 3}
       propertyPath: m_Name
       value: Burning_Embers_Fall
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397059, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397059, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397059, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397084, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397085, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: autoRandomSeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397085, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: ShapeModule.type
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397085, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: moveWithTransform
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397085, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: InitialModule.gravitySource
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391036397085, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: ShapeModule.radiusThickness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 553280391509579532, guid: 98133442349adf0459ba95ee1967a082, type: 3}
+      propertyPath: m_SortingOrder
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
