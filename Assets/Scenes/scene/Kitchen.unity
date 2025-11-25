@@ -1414,7 +1414,7 @@ MonoBehaviour:
   description: 
   doorIndex: 0
   targetDoorIndex: 0
-  sceneName: Hall
+  sceneName: Hall 1
 --- !u!1 &615042571
 GameObject:
   m_ObjectHideFlags: 0
@@ -3766,8 +3766,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: -0.055000067, y: -0.69875, z: 0}
-    m_Extent: {x: 1.9491, y: 3.12135, z: 0}
+    m_Center: {x: -0.05495, y: -0.69869995, z: 0}
+    m_Extent: {x: 1.94905, y: 3.1215, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0

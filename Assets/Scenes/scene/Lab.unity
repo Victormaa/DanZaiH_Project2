@@ -4875,7 +4875,7 @@ MonoBehaviour:
   description: 
   doorIndex: 0
   targetDoorIndex: 0
-  sceneName: Hall2
+  sceneName: 2Hall 1
 --- !u!1 &1700199027
 GameObject:
   m_ObjectHideFlags: 0

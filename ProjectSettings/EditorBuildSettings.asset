@@ -24,8 +24,20 @@ EditorBuildSettings:
     path: Assets/Scenes/scene/Black.unity
     guid: fd8ebbabd2c392d49a3a7a26c143954e
   - enabled: 1
+    path: Assets/Scenes/scene/Hall 1.unity
+    guid: b23bf131beecc6a4395141d8a0745322
+  - enabled: 1
+    path: Assets/Scenes/scene/basement 1.unity
+    guid: 2bb153ec1c477664797e13ac006565f6
+  - enabled: 1
+    path: Assets/Scenes/scene/Hall 3.unity
+    guid: 86971d7c5550666428bb51beb513b2ad
+  - enabled: 1
     path: Assets/Scenes/scene/Hall.unity
     guid: e6e94d1dc0e61de4aaca94ecc952c460
+  - enabled: 1
+    path: Assets/Scenes/scene/Hall 2.unity
+    guid: 480a278c5d8ea14449f0ffdc832f1c4b
   - enabled: 1
     path: Assets/Scenes/scene/2Hall.unity
     guid: be14f3f473c1bc54d84cba13bc783bf5
@@ -44,6 +56,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/scene/Library.unity
     guid: 07886b003853f284c8aa3241a646ddcb
+  - enabled: 1
+    path: Assets/Scenes/scene/2Hall 1.unity
+    guid: 1f57715ca4875f143b47f8bb629706fe
   - enabled: 1
     path: Assets/Scenes/scene/Lab.unity
     guid: 976ce3776ac730441acab9f007c0d506
